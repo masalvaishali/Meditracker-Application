@@ -1,0 +1,142 @@
+
+<div class="container-fluid bg-default py-4" >
+    <div class="container-fluid py-4">
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default" >
+              <li class="breadcrumb-item"><a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+             <li  class="breadcrumb-item" aria-current="page"><a id="breadCrumb" routerLink="/patient/viewappointmenthistory">Appointment History</a></li>
+            <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Feedback</li>
+            </ol>
+          </nav>
+        </div>
+
+    <div class="container-fluid mb-2">
+      <h1 class="text-white text-center">Your Feedbacks Are Our Assets !<img class="mb-2 ml-4" id="feedback_logo" src="../../assets/img/5-stars.png"> </h1>
+      <h4 class="text-center" id="greenText">Please help us evaluate our quality by filling the short feedback.</h4>
+      <h4 class="text-center" id="greenText">  Your two minutes will help us improving our standards.</h4>
+    </div>
+
+    <div class="card ml-auto mr-auto mt-4" id="feedback_card">
+
+        <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Question</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span id="#QuestionText">Medical services at hospital</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate1($event)"></star-rating>
+            </td>
+          </tr>      
+
+
+           <tr>
+            <td>
+              <span id="#QuestionText">Laboratory facilities</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate2($event)"></star-rating>
+            </td>
+          </tr>      
+
+           <tr>
+            <td>
+              <span id="#QuestionText">Hygine and Cleanliness</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate3($event)"></star-rating>
+            </td>
+          </tr>      
+
+           <tr>
+            <td>
+              <span id="#QuestionText">Behaviour of staff</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate4($event)"></star-rating>
+            </td>
+          </tr>      
+
+           <tr>
+            <td>
+              <span id="#QuestionText">Service of attending nurse</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate5($event)"></star-rating>
+            </td>
+          </tr>      
+
+           <tr>
+            <td>
+              <span id="#QuestionText">Admission Process</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate6($event)"></star-rating>
+            </td>
+          </tr>      
+
+          <tr>
+            <td>
+              <span id="#QuestionText">Discharge Process</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate7($event)"></star-rating>
+            </td>
+          </tr>         
+
+            <tr>
+            <td>
+              <span id="#QuestionText">Doctor's Experience</span>
+            </td>
+             <td>
+               <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="#172b4d" size="24px" readonly="false" (rate)="onRate8($event)"></star-rating>
+            </td>
+          </tr>         
+
+            <tr>
+            <td>
+              <span id="#QuestionText">Would you refer this doctor to any other known person ?</span>
+            </td>
+             <td>
+               <input type="checkbox" name="refer">
+            </td>
+          </tr>    
+          
+          <tr>
+               <div id="commentBox">
+                    <label class="form-control-label" for="textArea">Suggestions</label>
+                    <textarea class="form-control"  rows="2" ></textarea>
+               </div>
+          </tr>
+         
+              
+            
+
+        </tbody>
+      </table>
+     </div>
+
+
+
+
+        <div class="col-auto mr-auto ml-auto">
+         <button (click)="sendFeedback()" id="button" class="btn btn-primary lt-6 mb-4 mt-4">
+             Submit
+         </button>
+    </div>
+</div>
+</div>
+    
+
+
+
+
+

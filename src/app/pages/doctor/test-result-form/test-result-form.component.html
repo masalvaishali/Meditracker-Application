@@ -1,0 +1,379 @@
+<div class="container-fluid bg-default" id="image_specs">
+
+    <div class="container-fluid py-1">
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default" >
+              <li class="breadcrumb-item"><a routerLink="/doctor/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+              <li class="breadcrumb-item" aria-current="page"><a id="breadCrumb" routerLink="/doctor/testresults">My patients</a></li>
+              <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Report Form</li>
+            </ol>
+          </nav>
+    </div>
+
+  <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+      <h1 id="heading" class="mb-0 heading">Add Test Result / </h1>
+      <h1 id="green" class="mb-0 heading">Prescription</h1>
+    </div>
+    <div class="card-body">
+      <form class="needs-validation" id="updateTestResult" [formGroup]="updateTestResult" (ngSubmit)="onSubmit()">
+        <h6 class="heading-small text-muted mb-4">Add Test Details. </h6>
+
+
+        <div class="row">
+
+          <div class="col-md-3">
+            <div class="form-group">
+
+              <label class="form-control-label" for="testName1">Test Name</label>
+              <input type="text" class="form-control" id="testName1" placeholder="Enter test name."
+                formControlName="testName1" [ngClass]="{ 'is-invalid': submitted && f.testName1.errors }">
+              <div *ngIf="submitted && f.testName1.errors" class="invalid-feedback">
+                <div *ngIf="f.testName1.errors.required">Test name is required</div>
+                <div *ngIf="f.testName1.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+
+              <label class="form-control-label" for="actualValue1">Actual Value</label>
+              <input type="text" class="form-control" id="actualValue1" placeholder="Enter actual value"
+                formControlName="actualValue1" [ngClass]="{ 'is-invalid': submitted && f.actualValue1.errors }">
+              <div *ngIf="submitted && f.actualValue1.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue1.errors.required">Actual Value is required</div>
+                <div *ngIf="f.actualValue1.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-control-label" for="normalRange1">Normal Range </label>
+              <input type="text" class="form-control" id="normalRange1" placeholder="Enter Normal Range"
+                formControlName="normalRange1" [ngClass]="{ 'is-invalid': submitted && f.normalRange1.errors }">
+              <div *ngIf="submitted && f.normalRange1.errors" class="invalid-feedback">
+                <div *ngIf="f.normalRange1.errors.required">Normal Range is required</div>
+                <div *ngIf="f.normalRange1.errors.minlength">Normal Value should be at least 3 characters.</div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <!-- </div> -->
+          <button id="addButton" class="btn btn-round btn-success mt-4 mb-4 ml-4" type="button" data-toggle="collapse"
+            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fa fa-plus fa-6" aria-hidden="true"></i> Add
+          </button>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+
+                    <label class="form-control-label" for="testName2">Test Name</label>
+                    <input type="text" class="form-control" id="testName2" placeholder="Enter test name."
+                      formControlName="testName2" [ngClass]="{ 'is-invalid': submitted && f.testName2.errors }">
+                    <!--      <div *ngIf="submitted && f.testName2.errors" class="invalid-feedback">
+                <div *ngIf="f.testName2.errors.required">Test name is required</div>
+                <div *ngIf="f.testName2.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div> -->
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+
+                    <label class="form-control-label" for="actualValue2">Actual Value</label>
+                    <input type="text" class="form-control" id="actualValue2" placeholder="Enter actual value"
+                      formControlName="actualValue2" [ngClass]="{ 'is-invalid': submitted && f.actualValue2.errors }">
+                    <!--       <div *ngIf="submitted && f.actualValue2.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue2.errors.required">Actual Value  is required</div>
+                <div *ngIf="f.actualValue2.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div> -->
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="form-control-label" for="normalRange2">Normal Range </label>
+                    <input type="text" class="form-control" id="normalRange2" placeholder="Enter Normal Range"
+                      formControlName="normalRange2" [ngClass]="{ 'is-invalid': submitted && f.normalRange2.errors }">
+                    <!--      <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                          <div *ngIf="f.normalRange2.errors.required">Normal Range is required</div>
+                          <div *ngIf="f.normalRange2.errors.minlength">Normal Value should be at least 3 characters.</div>
+                        </div> -->
+                  </div>
+
+                </div>
+
+
+                <button id="addButton" class="btn btn-round btn-success mt-4 mb-4 ml-4" type="button"
+                  data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false"
+                  aria-controls="collapseExample">
+                  <i class="fa fa-plus fa-6" aria-hidden="true"></i> Add
+                </button>
+              </div>
+            </div>
+
+            <div class="collapse" id="collapseExample1">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="testName3">Test Name</label>
+                      <input type="text" class="form-control" id="testName3" placeholder="Enter test name."
+                        formControlName="testName3" [ngClass]="{ 'is-invalid': submitted && f.testName3.errors }">
+                      <!--      <div *ngIf="submitted && f.testName3.errors" class="invalid-feedback">
+                <div *ngIf="f.testName3.errors.required">Test name is required</div>
+                <div *ngIf="f.testName3.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="actualValue3">Actual Value</label>
+                      <input type="text" class="form-control" id="actualValue3" placeholder="Enter actual value"
+                        formControlName="actualValue3" [ngClass]="{ 'is-invalid': submitted && f.actualValue3.errors }">
+                      <!--        <div *ngIf="submitted && f.actualValue3.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue3.errors.required">Actual Value  is required</div>
+                <div *ngIf="f.actualValue3.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="form-control-label" for="normalRange3">Normal Range </label>
+                      <input type="text" class="form-control" id="normalRange3" placeholder="Enter Normal Range"
+                        formControlName="normalRange3" [ngClass]="{ 'is-invalid': submitted && f.normalRange3.errors }">
+                      <!--       <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                          <div *ngIf="f.normalRange3.errors.required">Normal Range is required</div>
+                          <div *ngIf="f.normalRange3.errors.minlength">Normal Value should be at least 3 characters.</div>
+                        </div> -->
+                    </div>
+
+                  </div>
+
+                  <button id="addButton" class="btn btn-round btn-success mt-4 mb-4 ml-4" type="button"
+                    data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    <i class="fa fa-plus fa-6" aria-hidden="true"></i> Add
+                  </button>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="collapse" id="collapseExample2">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="testName4">Test Name</label>
+                      <input type="text" class="form-control" id="testName4" placeholder="Enter test name."
+                        formControlName="testName4" [ngClass]="{ 'is-invalid': submitted && f.testName4.errors }">
+                      <!--         <div *ngIf="submitted && f.testName4.errors" class="invalid-feedback">
+                <div *ngIf="f.testName4.errors.required">Test name is required</div>
+                <div *ngIf="f.testName4.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="actualValue4">Actual Value</label>
+                      <input type="text" class="form-control" id="actualValue4" placeholder="Enter actual value"
+                        formControlName="actualValue4" [ngClass]="{ 'is-invalid': submitted && f.actualValue4.errors }">
+                      <!--       <div *ngIf="submitted && f.actualValue4.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue4.errors.required">Actual Value  is required</div>
+                <div *ngIf="f.actualValue4.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="form-control-label" for="normalRange4">Normal Range </label>
+                      <input type="text" class="form-control" id="normalRange4" placeholder="Enter Normal Range"
+                        formControlName="normalRange4" [ngClass]="{ 'is-invalid': submitted && f.normalRange4.errors }">
+                      <!--        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                          <div *ngIf="f.normalRange4.errors.required">Normal Range is required</div>
+                          <div *ngIf="f.normalRange4.errors.minlength">Normal Value should be at least 3 characters.</div>
+                        </div>  -->
+                    </div>
+
+                  </div>
+
+                  <button id="addButton" class="btn btn-round btn-success mt-4 mb-4 ml-4" type="button"
+                    data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    <i class="fa fa-plus fa-6" aria-hidden="true"></i> Add
+                  </button>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="collapse" id="collapseExample3">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="testName5">Test Name</label>
+                      <input type="text" class="form-control" id="testName5" placeholder="Enter test name."
+                        formControlName="testName5" [ngClass]="{ 'is-invalid': submitted && f.testName5.errors }">
+                      <!--      <div *ngIf="submitted && f.testName5.errors" class="invalid-feedback">
+                <div *ngIf="f.testName5.errors.required">Test name is required</div>
+                <div *ngIf="f.testName5.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="actualValue5">Actual Value</label>
+                      <input type="text" class="form-control" id="actualValue5" placeholder="Enter actual value"
+                        formControlName="actualValue5" [ngClass]="{ 'is-invalid': submitted && f.actualValue5.errors }">
+                      <!--       <div *ngIf="submitted && f.actualValue5.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue5.errors.required">Actual Value  is required</div>
+                <div *ngIf="f.actualValue5.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div> -->
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="form-control-label" for="normalRange5">Normal Range </label>
+                      <input type="text" class="form-control" id="normalRange5" placeholder="Enter Normal Range"
+                        formControlName="normalRange5" [ngClass]="{ 'is-invalid': submitted && f.normalRange5.errors }">
+                      <!--      <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                          <div *ngIf="f.normalRange5.errors.required">Normal Range is required</div>
+                          <div *ngIf="f.normalRange5.errors.minlength">Normal Value should be at least 3 characters.</div>
+                        </div> -->
+                    </div>
+
+                  </div>
+                  <button id="addButton" class="btn btn-round btn-success mt-4 mb-4 ml-4" type="button"
+                    data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    <i class="fa fa-plus fa-6" aria-hidden="true"></i> Add
+                  </button>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="collapse" id="collapseExample4">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="testName6">Test Name</label>
+                      <input type="text" class="form-control" id="testName6" placeholder="Enter test name."
+                        formControlName="testName6" [ngClass]="{ 'is-invalid': submitted && f.testName6.errors }">
+                      <!--      <div *ngIf="submitted && f.testName6.errors" class="invalid-feedback">
+                <div *ngIf="f.testName6.errors.required">Test name is required</div>
+                <div *ngIf="f.testName6.errors.minlength">Test name should be at least 4 characters.
+                </div>
+              </div>  -->
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <label class="form-control-label" for="actualValue6">Actual Value</label>
+                      <input type="text" class="form-control" id="actualValue6" placeholder="Enter actual value"
+                        formControlName="actualValue6" [ngClass]="{ 'is-invalid': submitted && f.actualValue6.errors }">
+                      <!--      <div *ngIf="submitted && f.actualValue6.errors" class="invalid-feedback">
+                <div *ngIf="f.actualValue6.errors.required">Actual Value  is required</div>
+                <div *ngIf="f.actualValue6.errors.minlength"> Actual Value should be at least 1 characters.
+                </div>
+              </div>  -->
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="form-control-label" for="normalRange6">Normal Range </label>
+                      <input type="text" class="form-control" id="normalRange6" placeholder="Enter Normal Range"
+                        formControlName="normalRange6" [ngClass]="{ 'is-invalid': submitted && f.normalRange6.errors }">
+                      <!--       <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                          <div *ngIf="f.normalRange6.errors.required">Normal Range is required</div>
+                          <div *ngIf="f.normalRange6.errors.minlength">Normal Value should be at least 3 characters.</div>
+                        </div>  -->
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="form-control-label" for="doctorComments">Result comments.</label>
+              <textarea id="doctorComments" class="form-control" id="exampleFormControlTextarea2" rows="6" resize="none"
+                placeholder="Enter Result Comments" formControlName="doctorComments"
+                [ngClass]="{ 'is-invalid': submitted && f.doctorComments.errors }"></textarea>
+              <div *ngIf="submitted && f.doctorComments.errors" class="invalid-feedback">
+                <div *ngIf="f.doctorComments.errors.required">Result Comments is required</div>
+                <div *ngIf="f.doctorComments.errors.minlength"> Result Comments should be at least 5
+                  characters</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label" for="otherInfo">Prescription.</label>
+              <textarea id="otherInfo" class="form-control" id="exampleFormControlTextarea2" rows="6" resize="none"
+                placeholder="Enter Prescription" formControlName="otherInfo"
+                [ngClass]="{ 'is-invalid': submitted && f.otherInfo.errors }"></textarea>
+              <div *ngIf="submitted && f.otherInfo.errors" class="invalid-feedback">
+                <div *ngIf="f.otherInfo.errors.required">Prescription is required</div>
+                <div *ngIf="f.otherInfo.errors.minlength">Prescription should be at least 5
+                  characters</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button type="submit" id="button" class="btn btn-primary">
+          Register
+        </button>
+
+
+
+      </form>
+    </div>
+  </div>
+
+</div>

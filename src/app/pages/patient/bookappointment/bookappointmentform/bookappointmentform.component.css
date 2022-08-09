@@ -1,0 +1,79 @@
+nav {
+    background-color: #3bd278;
+  }
+  
+  #button1 {
+    background-color: #ff8e31;
+    border: 0;
+    font-size: 80%;
+    box-align: center;
+    
+  }
+
+#icon_premium{
+  width: 1.75rem;
+  height: auto;
+  float: left;
+}
+
+
+  #button2 {
+    background-color: #3bd278;
+    border: 0;
+    font-size: 80%;
+    box-align: center;
+  }
+  
+  #greenText {
+    color: #3bd278;
+  }
+  
+  
+  #image_specs {
+    margin: 0;
+    padding: 40px;
+    width: 100%;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  label {
+    font-size: 0.9rem;
+  }
+  
+  #signup_card {
+    width: 80%
+  }
+  
+  #heading {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+  }
+  #green {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    color: #3bd278;
+  }
+  
+  #punchLine{
+    color: #172b4d;
+    float: left;
+  }
+
+  #breadCrumb{
+
+    color: white;
+  }
+  
+  #navBar{
+  background-color: #172b4d;
+  margin-top: 10px;
+  }
+  .required
+{
+    color: red;
+}

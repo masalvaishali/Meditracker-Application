@@ -1,0 +1,78 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+        <h1 id="heading" class="mb-0 heading pt-4">MANAGE</h1>
+        <h1 id="green" class="mb-0 heading pt-4"> AGENTS</h1>
+       
+       
+            <nav aria-label="breadcrumb" id="navBar">
+                <ol class="breadcrumb bg-default" >
+                  <li class="breadcrumb-item"><a routerLink="/admin/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+                  
+                <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Agent</li>
+                </ol>
+              </nav>
+         
+      </div>
+  <div class="card" id="manage_patient_card">
+    <div class="card-header border-0">
+      <div class="row">
+        <div class="col-auto mr-auto">
+          <h3 class="mb-0">Agents </h3>
+        </div>
+        <div class="col-auto"> <a routerLink="/admin/manage-agent/add-agent"
+            class="btn btn-sm btn-primary btn-round btn-icon text-right mr-0 ml-auto" data-toggle="tooltip">
+            <span class="btn-inner--icon"><i class="fas fa-user-plus"></i></span>
+            <span class="btn-inner--text">Add agent</span>
+          </a>
+          
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Date Of Birth</th>
+            <th>City</th>
+            <th>Commission(%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let agent of agents">
+            <td class="table-user">
+              <img *ngIf="agent.gender=='Male'" src="../../assets/img/patient-male.png"
+                class="avatar rounded-circle mr-3">
+              <img *ngIf="agent.gender=='Female'" src="../../assets/img/patient-female.png"
+                class="avatar rounded-circle mr-3">
+              <b>{{agent.firstName}} {{agent.lastName}}</b>
+            </td>
+            <td>
+              <span class="text-muted">{{agent.emailId}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{agent.contactNumber}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{agent.dateOfBirth | date:"dd MMM yyyy"}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{agent.city}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{agent.commission}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

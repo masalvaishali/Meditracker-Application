@@ -1,0 +1,150 @@
+<div class="container-fluid bg-default" id="image_specs">
+
+   
+    <div class="container-fluid py-1">
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default">
+              <li class="breadcrumb-item"><a routerLink="/doctor/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a id="breadCrumb" routerLink="/doctor/testresults">My patients</a></li>
+              <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View Report</li>
+            </ol>
+          </nav>
+    </div>
+     
+  <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+      <h1 id="heading" class="mb-0 heading">TEST </h1>
+      <h1 id="green" class="mb-0 heading">REPORT</h1>
+    </div>
+    <div class="card-body">
+
+      <div class="card" id="manage_doctor_card">
+
+        <!-- Light table -->
+        <div class="table-responsive">
+          <table class="table table-flush align-items-center">
+
+            <tbody>
+              <tr>
+                <td>
+                  <h3>Appointment ID: </h3>
+                </td>
+                <td> <span class="text-muted">{{appId}}</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Test Date:</h3>
+                </td>
+                <td> <span class="text-muted">{{medicalTest.testResultDate  | date:'dd MMM yyyy'}}</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Patient Name: </h3>
+                </td>
+                <td> <span class="text-muted">{{medicalTest.patient.firstName}} {{medicalTest.patient.lastName}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Gender: </h3>
+                </td>
+                <td> <span class="text-muted">{{medicalTest.patient.gender}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Date Of Birth: </h3>
+                </td>
+                <td> <span class="text-muted">{{medicalTest.patient.dateOfBirth | date:'dd MMM yyyy'}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Doctor Name: </h3>
+
+                </td>
+                <td> <span class="text-muted">{{medicalTest.doctor.firstName}}
+                    {{medicalTest.doctor.lastName}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Medicare Service:
+                  </h3>
+
+
+                </td>
+                <td> <span class="text-muted">{{medicalTest.doctor.medicareService.medicareService}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+
+      <div class="card" id="manage_doctor_card">
+        <div class="card-header border-0">
+          <div class="row">
+            <div class="col-6">
+              <h3 class="mb-0">TESTS</h3>
+            </div>
+
+          </div>
+        </div>
+        <!-- Light table -->
+        <div class="table-responsive">
+          <table class="table table-flush align-items-center">
+            <thead class="thead-light">
+              <tr>
+                <th>Name</th>
+                <th>Obtained Values</th>
+                <th>Normal Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let test of tests">
+                <td>
+                  <span class="text-muted">{{test.name}}</span>
+                </td>
+                <td>
+                  <span class="text-muted">{{test.actualValue}}</span>
+                </td>
+                <td>
+                  <span class="text-muted">{{test.normalRange}}</span>
+                </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-0">Doctor Comments: </h3>
+            <p>{{medicalTest.doctorComments}}</p>
+          </div>
+
+        </div>
+      </div>
+      <hr />
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-0">Prescription: </h3>
+            <p>{{medicalTest.otherInfo}}</p>
+          </div>
+
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-auto text-center"> <button (click)="downloadPDF()" id="downloadbutton"
+              class="btn btn-primary ml-auto mr-auto text-center">
+              Download
+            </button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

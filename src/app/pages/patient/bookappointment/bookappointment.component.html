@@ -1,0 +1,60 @@
+<div class="container-fluid bg-default pb-4">
+  <div class="container-fluid py-4">
+    <h1 id="heading" class="mb-0 heading pt-4">BOOK</h1>
+    <h1 id="green" class="mb-0 heading pt-4"> APPOINTMENT</h1>
+    
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default" >
+              <li class="breadcrumb-item"><a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+            
+            <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Choose Medicare Service</li>
+            </ol>
+          </nav>
+        
+
+  </div>
+  <div class="card mx-2" id="choose_medicare_service_card">
+    <div class="card-header border-0">
+      <div class="row">
+        <div class="col-auto mr-auto">
+          <h3 class="mb-0">Choose Medicare Service</h3>
+        </div>
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Medicare Service</th>
+            <th>Service Description</th>
+            <th>Amount</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medicareservice of medicare">
+            <td>
+              <span class="text-muted">{{medicareservice.medicareService}}</span>
+            </td>
+            <td>
+              <span
+                class="text-muted overflow ellipsis">{{medicareservice.serviceDescription.substring(0,100)}}</span>
+              <a *ngIf="medicareservice.serviceDescription.length > 100" href="javascript:void(0)" (click)="viewMore($event,medicareservice.medicareServiceId)">...more</a>
+            </td>
+            <td>
+              <span class="text-muted">{{medicareservice.amount}}</span>
+            </td>
+            <td>
+              <button (click)="viewDoctors(medicareservice.medicareServiceId)"
+                class="btn btn-sm btn-primary btn-round btn-icon text-right mr-0 ml-auto" data-toggle="tooltip">
+                <span class="btn-inner--icon"><i class="fas fa-stethoscope"></i></span>
+                <span class="btn-inner--text">View Doctors</span>
+              </button>
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container-fluid bg-default" id="main_container">
+  <div class="header py-4 py-lg-4 pt-lg-6">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+            <h1 class="text-white">Welcome to </h1> <img class="mb-2" id="welcome_logo"
+              src="../../assets/img/brand/clinix-color-logo.png">
+            <p class="text-lead text-white welcome_text">Login to avail our amazing medicare services. </p>
+            <p class="text-lead text-white">Your health is our responsiblity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid mt--9" id="image_specs">
+
+
+    <div class="card text-center ml-auto mr-auto" id="login_card">
+      <div class="card-header">
+
+        <h1 id="heading" class="mb-0 heading">LOG</h1>
+        <h1 id="green" class="mb-0 heading"> IN</h1>
+
+      </div>
+      <div class="card-body">
+        <form class="needs-validation" id="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-row mb-4"> 
+            <label class="form-control-label" for="emailId">Email</label>
+            <input type="text" maxlength="50" class="form-control" id="emailId" formControlName="emailId" placeholder="Enter Email"
+              [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
+            <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+              <div *ngIf="f.emailId.errors.required">Email ID is required</div>
+              <div *ngIf="f.emailId.errors.minlength">Email ID should be at least 4 characters</div>
+              <div *ngIf="f.emailId.errors.maxlength">Email ID should be at most 50 characters</div>
+              <div *ngIf="f.emailId.errors.pattern">Email ID should be of correct format</div>
+            </div>
+          </div>
+          <div class="form-row mb-4">
+            <label class="form-control-label" for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password"
+              placeholder="Enter Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password should be at least 4 characters</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-auto mr-auto ml-auto">
+              <button type="submit" id="button" class="btn btn-primary lt-6">
+                Login
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!--   <div class="text-center text-white ml-auto mr-auto">
+      New Here? <a routerLink="/signup-admin">Signup</a>
+    </div> -->
+  </div>
+</div>

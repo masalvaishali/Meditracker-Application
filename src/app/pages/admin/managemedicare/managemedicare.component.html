@@ -1,0 +1,59 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+        <h1 id="heading" class="mb-0 heading pt-4">MANAGE</h1>
+        <h1 id="green" class="mb-0 heading pt-4"> MEDICARE SERVICES</h1>
+       
+            <nav aria-label="breadcrumb" id="navBar">
+                <ol class="breadcrumb bg-default" >
+                  <li class="breadcrumb-item"><a routerLink="/admin/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+                <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Medicare Service</li>
+                </ol>
+              </nav>
+       </div>
+     
+  <div class="card" id="manage_medicareservice_card">
+    <div class="card-header border-0">
+      <div class="row">
+        <div class="col-auto mr-auto">
+          <h3 class="mb-0">Medicare Services</h3>
+        </div>
+        <div class="col-auto"> <a routerLink="/admin/manage-medicare/add-medicare"
+          class="btn btn-sm btn-primary btn-round btn-icon text-right mr-0 ml-auto" data-toggle="tooltip">
+          <span class="btn-inner--icon"><i class="fas fa-medkit"></i></span>
+          <span class="btn-inner--text">Add Medicare Service</span>
+        </a>
+        
+
+
+      </div>
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Medicare Service</th>
+            <th>Service Description</th>
+            <th>Amount</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medicareservice of medicare">
+
+            <td>
+              <span class="text-muted">{{medicareservice.medicareService}}</span>
+            </td>
+            <td>
+              <span class="text-muted overflow ellipsis"  >{{medicareservice.serviceDescription.substring(0,100)}}...</span>
+              <a href="javascript:void(0)" (click)="viewMore($event,medicareservice.medicareServiceId)">more</a>
+            </td>
+            <td>
+              <span class="text-muted">{{medicareservice.amount}}</span>
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

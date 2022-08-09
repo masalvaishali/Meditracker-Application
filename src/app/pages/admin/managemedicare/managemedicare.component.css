@@ -1,0 +1,38 @@
+#descriptionCol{
+
+}
+
+.overflow{
+    width: 10rem;
+    white-space: nowrap;    
+    overflow: hidden;
+}
+
+.ellipsis{
+    text-overflow: ellipsis;
+}
+#green {
+    color: #3BD278;
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    padding-top: 2rem;
+  }
+  
+  #heading {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    color: white;
+    padding-top: 2rem;
+  
+  }
+  #breadCrumb{
+
+    color: white;
+  }
+  
+  #navBar{
+  background-color: #172b4d;
+  margin-top: 10px;
+  }

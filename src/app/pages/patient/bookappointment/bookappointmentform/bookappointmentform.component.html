@@ -1,0 +1,100 @@
+<div class="container-fluid bg-default" id="image_specs">
+    <div class="container-fluid py-4">
+       
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default" >
+              <li class="breadcrumb-item"><a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+              <li class="breadcrumb-item"><a id="breadCrumb" routerLink="/patient/bookappointment">Choose Medicare Service</a></li>
+            
+            <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Book Appointment Now</li>
+            </ol>
+          </nav>
+        
+      </div>
+
+  <div class="card my-2 mx-auto" id="signup_card">
+    <div class="card-header text-center">
+      <h1 id="heading" class="mb-0 heading">BOOK </h1>
+      <h1 id="green" class="mb-0 heading">APPOINTMENT</h1>
+    </div>
+    <div class="card-body">
+      <form class="needs-validation" id="bookAppointmentForm" [formGroup]="bookAppointmentForm">
+        <h6 class="heading-small text-muted mb-4">Appointment</h6>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" class="form-control-label" for="dateOfAppointment">Date Of
+                Appointment</label><span class="required">*</span>
+              <input type="date" class="form-control datepicker " id="dateOfAppointment"
+                placeholder="Select Date Of Appointment" formControlName="dateOfAppointment" value="25/11/2019"
+                [ngClass]="{ 'is-invalid': submitted && f.dateOfAppointment.errors }">
+              <div *ngIf="submitted && f.dateOfAppointment.errors" class="invalid-feedback">
+                <div *ngIf="f.dateOfAppointment.errors.required">Date Of Appointment is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="selectTimeSlot">Select Time Slot</label>
+              <span class="required">*</span>
+              <select id="selectTimeSlot" class="form-control " formControlName="selectTimeSlot"
+                [ngClass]="{ 'is-invalid': submitted && f.selectTimeSlot.errors }" placeholder="Select Time Slot">
+                <option value="1">10am - 12pm</option>
+                <option value="2">2pm - 4pm</option>
+                <option value="3">6pm - 9pm</option>
+              </select>
+              <div *ngIf="submitted && f.selectTimeSlot.errors" class="invalid-feedback">
+                <div *ngIf="f.selectTimeSlot.errors.required">Time Slot is required</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-center">
+
+            <button id="button1" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="bookWithAgent()"
+              (mouseover)="showPrice1=true" (mouseout)="showPrice1=false">
+              Book via Agent<br>
+              <span *ngIf="!showPrice1"></span>
+              <span *ngIf="showPrice1">{{medicare.amount*((100+agent.commission)/100) | currency:"INR"}}</span>
+            </button>
+            <div class="text-center ml-8 mr-auto">
+              <img id="icon_premium" src="../../assets/img/crown.png"
+                class="avatar rounded-circle mt-2 mb-2 ml-auto mr-auto"> <span id="punchLine"
+                class="mt-2 mb-2">&nbsp;Skip
+                long
+                waiting</span>
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+            <button id="button2" class="btn btn-primary px-5 py-3 ml-auto mr-auto" (click)="book()"
+              (mouseover)="showPrice2=true" (mouseout)="showPrice2=false">
+              Book Now<br>
+              <span *ngIf="!showPrice2"></span>
+              <span *ngIf="showPrice2">{{medicare.amount | currency:"INR"}}</span>
+            </button>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-center pr-auto pl-auto">
+
+          </div>
+          <div class="col-md-6 text-center">
+
+          </div>
+
+        </div>
+
+
+
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+      <h1 id="heading" class="mb-0 heading pt-4">UPCOMING </h1>
+      <h1 id="green" class="mb-0 heading pt-4">APPOINTMENTS</h1>
+
+      <div class="container-fluid py-1">
+          <nav aria-label="breadcrumb" id="navBar">
+              <ol class="breadcrumb bg-default" >
+                <li class="breadcrumb-item"><a routerLink="/doctor/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+                <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View Appointments.</li>
+              </ol>
+            </nav>
+      </div>
+  
+
+    </div>
+    <div class="card mx-2" id="manage_doctor_card">
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-auto">
+            <h3 class="mb-0">Upcoming Appointments</h3>
+          </div>
+  
+        </div>
+      </div>
+      <!-- Light table -->
+      <div class="table-responsive">
+        <table class="table table-flush align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th>Patient Name</th>
+              <th>Premium</th>
+              <th>Time Slot</th>
+              <th>Date Of A ppointment</th>
+              <th>Approve Appointment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let app of appointments ; let i = index" [attr.data-index]="i">
+             <td class="table-user">
+                    <img *ngIf="patients[i].gender=='Male'" src="../../assets/img/user-male.png"
+                      class="avatar rounded-circle mr-3">
+                    <img *ngIf="patients[i].gender=='Female'" src="../../assets/img/user-female.png"
+                      class="avatar rounded-circle mr-3">
+                    
+                    <b>{{patients[i].firstName}} {{patients[i].lastName}}</b>
+              </td>
+
+              <td class="table-user">
+                  <img *ngIf="app.agent.firstName!='Default'" src="../../assets/img/crown.png" id="icon_premium">
+              </td>
+              
+              <td>
+                <div *ngIf="app.timeSlot==1">
+                  10 AM to 12 PM
+                </div>
+                <div *ngIf="app.timeSlot==2">
+                  2 PM to 4 PM
+                </div>
+                <div *ngIf="app.timeSlot==3">
+                  6 PM to 9 PM
+                </div>
+  
+              </td>
+              <td>
+                {{app.dateOfAppointment | date:'dd/MM/yyyy'}}
+              </td>
+  
+              <td>
+                  <label *ngIf="app.status=='approved'" class="custom-toggle custom-toggle-success">
+                     <img src="../../assets/img/check.png" id="checkIcon">
+                  </label>
+                  <label *ngIf="app.status=='rejected'" class="custom-toggle custom-toggle-success">
+                      <img src="../../assets/img/cancel.png" id="checkIcon">
+                   </label>
+                  <label *ngIf="app.status=='pending'" class="custom-toggle custom-toggle-success">
+                      <input type="checkbox" (change)="ApproveOrRejectPatient($event, app)" >
+                      <span class="custom-toggle-slider rounded-circle" data-label-off="No" data-label-on="Yes" id="ApproveRejectToggle"></span>
+                  </label>
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  

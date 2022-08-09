@@ -1,0 +1,75 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid pt-4">
+        <h1 id="heading" class="mb-0 heading pt-4">MANAGE</h1>
+        <h1 id="green" class="mb-0 heading pt-4"> DOCTORS</h1>
+        <nav aria-label="breadcrumb" id="navBar">
+            <ol class="breadcrumb bg-default" >
+              <li class="breadcrumb-item"><a routerLink="/admin/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+            <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">Doctors</li>
+            </ol>
+          </nav>
+      </div>
+
+  <div class="card my-4 pb" id="manage_doctor_card">
+    <div class="card-header border-0">
+      <div class="row">
+        <div class="col-6">
+          <h3 class="mb-0">Doctors</h3>
+        </div>
+
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Hospital Name</th>
+            <th>Speciality</th>
+            <th>Medicare Service</th>
+            <th>Approved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of doctors">
+            <td class="table-user">
+              <img *ngIf="doctor.gender=='Male'" src="../../assets/img/doctor.png" class="avatar rounded-circle mr-3">
+              <img *ngIf="doctor.gender=='Female'" src="../../assets/img/doctor-female.png"
+                class="avatar rounded-circle mr-3">
+              <b>{{doctor.firstName}} {{doctor.lastName}}</b>
+            </td>
+            <td>
+              <span class="text-muted">{{doctor.email}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{doctor.contactNumber}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{doctor.hospitalName}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{doctor.speciality}}</span>
+            </td>
+            <td>
+              <span class="text-muted">{{doctor.medicareService.medicareService}}</span>
+            </td>
+            <td>
+              <label *ngIf="doctor.approve" class="custom-toggle custom-toggle-success">
+                <input type="checkbox" (change)="ApproveOrRejectDoactor($event, doctor)" checked>
+                <span class="custom-toggle-slider rounded-circle" data-label-off="No" data-label-on="Yes" id="ApproveRejectToggle"></span>
+              </label>
+              <label *ngIf="!doctor.approve" class="custom-toggle custom-toggle-success">
+                <input type="checkbox" (change)="ApproveOrRejectDoactor($event, doctor)" >
+                <span class="custom-toggle-slider rounded-circle" data-label-off="No" data-label-on="Yes" id="ApproveRejectToggle"></span>
+              </label>
+            </td>
+            
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

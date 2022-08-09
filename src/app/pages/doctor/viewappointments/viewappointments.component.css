@@ -1,0 +1,38 @@
+#green {
+    color: #3BD278;
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    padding-top: 2rem;
+  }
+  
+  #heading {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    color: white;
+    padding-top: 2rem;
+  
+  }
+
+  #icon_premium{
+    width: 1.75rem;
+    height: auto;
+    float: left;
+  }
+
+  #checkIcon{
+    width: 1.75rem;
+    height: auto;
+    float: left;
+  }
+
+  #breadCrumb{
+
+    color: white;
+  }
+
+#navBar{
+  background-color: #172b4d;
+  margin-top: 10px;
+}
