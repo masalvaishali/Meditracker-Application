@@ -1,0 +1,26 @@
+--insert into Doctor values(1,'Vishal','Madhwani','vishal@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',1);
+--insert into Doctor values(2,'Avirup','Debnath','avirup@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','09-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',2);
+--insert into Doctor values(3,'Himani','Satija','himani@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','02-08-1996','Female',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',1);
+--insert into Doctor values(4,'Vaishali','Masal','vaishali@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','10-08-1996','Female',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',3);
+--insert into Doctor values(5,'Bhargav','Tsapparapu','bhargav@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','16-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',2);
+--insert into Doctor values(6,'Rahul','Madhwani','rahul@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',4);
+--insert into Doctor values(7,'Aniket','Shukla','aniket@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',5);
+--insert into Doctor values(8,'Anshul','Kumar','anshul@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',2);
+--insert into Doctor values(9,'Aman','Nath','aman@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',3);
+--insert into Doctor values(10,'Tushar','Roy','tushar@deloitte.com','abc@123','9876543212','1234567898','abcd','abcd','17-08-1996','Male',
+--'bai ka bagh','gt road','allahabad','UP',211003,'B Tech','abc',1,'abcd',1);
+--
+--insert into Medicare values(1,'Neurologist','Neurologists',1000);
+--insert into Medicare values(2,'Cardiologist','Cardiologists',3000);
+--insert into Medicare values(3,'Dermatologist','Dermatologists',1000);
+--insert into Medicare values(4,'Dentist','Dentists',2000);
+--insert into Medicare values(5,'Pediatrician','Pediatrician',1500);

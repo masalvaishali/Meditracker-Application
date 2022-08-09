@@ -1,0 +1,20 @@
+--insert into Patient values(1,'Varun','shukla','varun@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(2,'Akarshan','Kumar','akarshan@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2001','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(3,'Himanshu','Madhwani','himanshu@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','13-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(4,'Akhil','Tiwari','akhil@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','12-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(5,'Vivek','Nath','vivek@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(6,'Vaibhav','<Madhwani>','vaibhav@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(7,'Sachin','Jaiswal','sachin@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(8,'Gaurav','Keswani','gaurav@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(9,'Shikhar','Manglani','shikhar@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
+--insert into Patient values(10,'Shashank','Mishra','shashank@gmail.com','abc@123','9876543212','1234567898','What is your school name',
+--'BHS','24-03-2002','Male','Civil Lines','George Town','Kanpur','Uttar Pradesh','211003')
