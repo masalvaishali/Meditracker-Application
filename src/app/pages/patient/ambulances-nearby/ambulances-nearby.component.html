@@ -1,0 +1,105 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+      <h1 id="heading" class="mb-0 heading pt-4">AMBULANCE</h1>
+      <h1 id="purple" class="mb-0 heading pt-4"> NEARBY</h1>
+     
+          <nav aria-label="breadcrumb" id="navBar">
+              <ol class="breadcrumb bg-default" >
+                <li class="breadcrumb-item"><a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+               <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View ambulance</li>
+              </ol>
+            </nav>
+      
+
+    </div>
+    <div class="card mx-2" id="manage_doctor_card">
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-0"> All Ambulances Data</h3>
+          </div>
+          <div class="col-6">
+            <div class="form-outline">
+              <input type="search" id="form1" class="form-control" placeholder="Type query" [(ngModel)]="search" aria-label="Search" />
+            </div>
+    
+          </div>
+        </div>
+      </div>
+      <!-- Light table -->
+      <div class="table-responsive">
+        <table class="table table-flush align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th> Hospital Name</th>
+              <th> Address</th>
+              <th>Ambulance remaining</th>
+              <th>Department</th>
+              <th>Contact Number</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let app of hospitals | filterDept: search ;let i=index;">
+              <td class="table-user">
+                <!-- <img *ngIf="app.doctor.gender=='Male'" src="../../assets/img/doctor.png"
+                    class="avatar rounded-circle mr-3">
+                  <img *ngIf="app.doctor.gender=='Female'" src="../../assets/img/doctor-female.png"
+                    class="avatar rounded-circle mr-3"> -->
+                <b>{{app.name}} </b>
+              </td>
+              <td>
+              {{app.address}}
+              </td>
+              <td>
+                {{app.numberOfAmbulance + ' remaining'}}
+              </td>
+              <td>
+                <span *ngFor="let dep of app.departments;let l=last;">{{dep}} <span *ngIf="!l"> , </span></span>
+              </td>
+              <td>
+                {{app.contactNumber}}
+              </td>
+              <td>
+                <button type="button" [disabled]="ambBooked == i || !app.numberOfAmbulance" (click)="bookambulance(app.hospitalId, i)" id="button" class="btn btn-sm btn-info">Book Ambulance</button>
+                <button type="button"  [disabled]="ambBooked !== i" data-toggle="modal"
+                data-target="#myModal" class="btn btn-sm btn-info">Check Details</button>
+
+                <button id="button" type="button" [disabled]="ambBooked !== i" (click)="cancelambulance(app.hospitalId,i)" id="button" class="btn btn-sm btn-info">Cancel Booking</button>
+
+              </td>
+          </tbody>
+        </table>
+        <div class="modal" tabindex="-1" role="dialog" id="myModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title">Ambulance Details</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             <div class="modal-body" *ngIf="ambDetails">
+              <ul class="list-group">
+                <li class="list-group-item"><h5>Driver Name:</h5>  {{ambDetails.ambulance.driverName}}</li>
+                <li class="list-group-item"><h5>Driver Contact Number:</h5>  {{ambDetails.ambulance.driverContact}}</li>
+                <li class="list-group-item"><h5>Ambulance Number:</h5>  {{ambDetails.ambulance.ambulanceNo}}</li>
+                <li class="list-group-item"><h5>Hospital Name: </h5>   {{ambDetails.hospital.name}}</li> 
+                <li class="list-group-item"><h5>Hospital Contact Number:</h5>  {{ambDetails.hospital.contactNumber}}</li>
+                <li class="list-group-item"><h5>Hospital Address:</h5>   {{ambDetails.hospital.address}}</li>
+                <li class="list-group-item"><h5>Ambulance Booked By:</h5>  {{ambDetails.patient.firstName}}{{ambDetails.patient.lastName}}</li>
+                <li class="list-group-item"><h5>Ambulance Booked By Details:</h5>   {{ambDetails.patient.emailId}},  {{ambDetails.patient.contactNumber}}</li>
+              </ul>
+             </div>
+              <div class="modal-footer">
+               
+                <button data-dismiss="modal"  id="button" class="btn btn-success">
+                  Close
+                </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,72 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+      <h1 id="heading" class="mb-0 heading pt-4">VIEW</h1>
+      <h1 id="purple" class="mb-0 heading pt-4"> RECORDS</h1>
+      <nav aria-label="breadcrumb" id="navBar">
+          <ol class="breadcrumb bg-default" >
+            <li class="breadcrumb-item"><a routerLink="/doctor/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+           <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View Records</li>
+          </ol>
+        </nav>
+  
+    </div>
+
+    <div class="card mx-2" id="manage_doctor_card">
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-4">
+            <h3 class="mb-0">Records</h3>
+          </div>
+          <div clss="col-3">
+
+          </div>
+        <div class="col-5">
+          <div class="form-outline">
+            <input type="search" id="form1" class="form-control" placeholder="Type query" [(ngModel)]="search" aria-label="Search" />
+          </div>
+        </div>
+        </div>
+      </div>
+      <!-- Light table -->
+      <div class="table-responsive">
+        <table class="table table-flush align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th>Procedure Type</th>
+              <th>Category Type</th>
+              <th>Procedure Date</th>
+              <th>Doctor Name</th>
+              <th>Files</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of records | arrayFilter:search">
+              <td>
+                {{record.procedureType}}
+              </td>
+              <td>
+                {{record.conditionCategory}}
+              </td>
+              <td>
+                {{record.procedureDate}}
+              </td>
+              <td>
+                {{record.consultingDocName}}
+              </td>
+              <td >
+               <span *ngFor="let file of record.files">
+                
+                <button type="button" (click)="download(file.split(':')[1])" class="btn btn-link">
+                  {{file.split(':')[0]}}
+                </button>
+              
+              </span> 
+          
+              </td>
+     
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  

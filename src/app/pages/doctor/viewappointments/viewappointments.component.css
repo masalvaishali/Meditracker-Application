@@ -1,0 +1,43 @@
+#purple {
+    color: #022449;
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    padding-top: 2rem;
+  }
+  
+  #heading {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    color: white;
+    padding-top: 2rem;
+  
+  }
+
+  #icon_premium{
+    width: 1.75rem;
+    height: auto;
+    float: left;
+  }
+
+  #checkIcon{
+    width: 1.75rem;
+    height: auto;
+    float: left;
+  }
+
+  #breadCrumb{
+
+    color: white;
+  }
+
+#navBar{
+  background-color: #58BDCA;
+  margin-top: 10px;
+}
+
+#button {
+  background-color: #022449;
+  border: 0;
+}

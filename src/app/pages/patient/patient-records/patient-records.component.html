@@ -1,0 +1,150 @@
+<div class="container-fluid bg-default pb-4">
+    <div class="container-fluid py-4">
+      <h1 id="heading" class="mb-0 heading pt-4">VIEW</h1>
+      <h1 id="purple" class="mb-0 heading pt-4"> RECORDS</h1>
+      <nav aria-label="breadcrumb" id="navBar">
+          <ol class="breadcrumb bg-default" >
+            <li class="breadcrumb-item"><a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a></li>
+           <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">View Records</li>
+          </ol>
+        </nav>
+  
+    </div>
+
+    <div class="card mx-2" id="manage_doctor_card">
+      <div class="card-header border-0">
+        <div class="row">
+          <div class="col-3">
+            <h3 class="mb-0">Records</h3>
+          </div>
+          <div class="col-4">
+              <div class="form-outline">
+                <input type="search" id="form1" class="form-control" placeholder="Type query" [(ngModel)]="search" aria-label="Search" />
+              </div>
+            <!-- <input type="search" placeholder="Search by Name .. " [(ngModel)]="search"> -->
+          </div>
+        <div class="col-5 text-right pr-5">
+          <button (click)="openModal()" id="button" class="btn btn-primary">
+          <!-- <button data-toggle="modal" data-target="#myModal" id="button" class="btn btn-primary"> -->
+            Upload
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Procedure Type</th>
+            <th>Severity</th>
+            <th>Category Type</th>
+            <th>Procedure Date</th>
+            <th>Doctor Name</th>
+            <th>Files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records | arrayFilter:search">
+            <td>
+              {{record.procedureType}}
+            </td>
+            <td>
+              {{record.severity}}
+            </td>
+            <td>
+              {{record.conditionCategory}}
+            </td>
+            <td>
+              {{record.procedureDate}}
+            </td>
+            <td>
+              {{record.consultingDocName}}
+            </td>
+            <td>
+              <span *ngFor="let file of record.files">
+
+                <button type="button" (click)="download(file.split(':')[1])" class="btn btn-link">
+                  {{file.split(':')[0]}}
+                </button>
+              </span>
+            </td>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Upload Test Results</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-control-label">Select Category</label>
+                <span class="required">*</span>
+                <select class="form-control " [(ngModel)]="categoryType" placeholder="Select Record Category">
+                  <option *ngFor="let category of catogories" [value]="category">{{category}}</option>
+                  
+                </select>
+             
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-control-label">Select Severity</label>
+                <span class="required">*</span>
+                <select class="form-control " [(ngModel)]="severityType" placeholder="Select Severity">
+                  <option *ngFor="let sev of severity" [value]="sev">{{sev}}</option>
+                 
+                </select>
+               
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label"> Doctor Name</label>
+            <span class="required">*</span>
+            <input type="text" maxlength="30" [(ngModel)]="doctorName" class="form-control"
+              placeholder="Enter Doctor Name">
+
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-control-label">Procedure Date</label>
+                <span class="required">*</span>
+                <input type="date" class="form-control datepicker" placeholder="Enter Procedure Date" value="25/11/2019"
+                  [(ngModel)]="procedureDate">
+
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-control-label">Select ProcedureType</label>
+                <span class="required">*</span>
+                <select class="form-control " [(ngModel)]="procedureType" placeholder="Select ProcedureType">
+                  <option *ngFor="let procedure of ProcedureType" [value]="procedure">{{procedure}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <input class="form-control" id="file" type="file" multiple (change)="onChange($event)">
+        </div>
+        <div class="modal-footer">
+          
+          <button (click)="onUpload()" class="btn btn-success">
+            Upload
+          </button>
+        
+        </div>
+      </div>
+    </div>
+  </div>

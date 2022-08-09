@@ -1,0 +1,60 @@
+nav {
+  background-color: #022449;
+}
+
+#button {
+  background-color: #022449;
+  border: 0;
+  font-size: 120%;
+}
+
+#purpleText {
+  color: #022449;
+}
+
+#image_specs {
+  margin: 0;
+  padding: 40px;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+#signup_card {
+  min-width: 20rem;
+  width: 60%;
+}
+
+#heading {
+  display: inline;
+  font-size: 150%;
+  font-weight: bold;
+}
+#purple {
+  display: inline;
+  font-size: 150%;
+  font-weight: bold;
+  color: #022449;
+}
+
+.required
+{
+    color: red;
+}
+
+#breadCrumb{
+
+  color: white;
+}
+
+#navBar{
+background-color: #58BDCA;
+margin-top: 10px;
+}
+

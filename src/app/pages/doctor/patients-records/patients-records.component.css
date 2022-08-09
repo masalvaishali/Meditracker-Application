@@ -1,0 +1,31 @@
+#purple {
+    color: #022449;
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    padding-top: 2rem;
+  }
+  
+  #heading {
+    display: inline;
+    font-size: 150%;
+    font-weight: bold;
+    color: white;
+    padding-top: 2rem;
+  
+  }
+
+  #viewbutton {
+    border: 0;
+    font-size: 100%;
+   
+  }
+  #breadCrumb{
+
+    color: white;
+  }
+  
+  #navBar{
+  background-color: #58BDCA;
+  margin-top: 10px;
+  }

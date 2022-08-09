@@ -1,0 +1,40 @@
+    <div *ngIf="hasData">
+
+          <ul class="list-group">
+            <li class="list-group-item"><h5>Insurance Provider:</h5>  {{InsuranceData.insuranceProvider}}</li>
+            <li class="list-group-item"><h5>Insurance Number:</h5>  {{InsuranceData.insuranceNumber}}</li>
+            <li class="list-group-item"><h5>Email of Insurer :</h5> {{InsuranceData.insuranceProviderEmail}} </li>
+           
+          </ul>
+
+   </div>
+<div *ngIf="!hasData">
+    <div class="container mt-3">
+        <!-- <h2>Insurance Details Form</h2> -->
+        <form #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)">
+            <div class="form-group mb-3 mt-3">
+                <label for="insuranceNumber">Insurance Number:</label>
+                <input style="width: 250px;" required placeholder="Insurance Number" minlength="3" maxlength="8" name="insuranceNumber" type="text"
+                    class="form-control" id="insuranceNumber" [(ngModel)]="InsuranceNumber">
+            </div>
+            <div class="form-group mt-3">
+                <label for="insuranceProvider">Insurance Provider:</label>
+                <input style="width: 250px;" required placeholder="Insurance Provider" name="insuranceProvider" type="text" class="form-control"
+                    id="insuranceProvider" [(ngModel)]="InsuranceProvider">
+            </div>
+            <div class="form-group">
+                <label for="insuranceProviderEmail">Insurance Provider Email:</label>
+                <input style="width: 250px;" required placeholder="Insurance Provider Email" name="insuranceProviderEmail" id="insuranceProviderEmail"
+                    cols="30" rows="10" class="form-control" [(ngModel)]="InsuranceProviderEmail">
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Upload Document:</label>
+                <!-- <input type="file" name="document" [(ngModel)]="form.document" observeFiles /> -->
+                <!-- <input style="width: 250px;" class="form-control" type="file" name="document" multiple> -->
+                
+                <input class="form-control" id="file" type="file" multiple (change)="onChange($event)">
+            </div>
+            <button class="btn btn-primary" type="submit" [class.disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>

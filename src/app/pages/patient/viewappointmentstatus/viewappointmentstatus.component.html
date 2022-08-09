@@ -1,0 +1,139 @@
+<div class="container-fluid bg-default pb-4">
+  <div class="container-fluid py-4">
+    <h1 id="heading" class="mb-0 heading pt-4">APPOINTMENT</h1>
+    <h1 id="purple" class="mb-0 heading pt-4">STATUS</h1>
+
+    <nav aria-label="breadcrumb" id="navBar">
+      <ol class="breadcrumb bg-default">
+        <li class="breadcrumb-item">
+          <a routerLink="/patient/home"><i id="breadCrumb" class="fas fa-home fa-6"></i></a>
+        </li>
+        <li id="breadCrumb" class="breadcrumb-item active" aria-current="page">
+          View Appointment
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="card mx-2" id="manage_doctor_card">
+    <div class="card-header border-0">
+      <div class="row">
+        <div class="col-6">
+          <h3 class="mb-0">All Appointments</h3>
+        </div>
+        <div class="col-6">
+          <div class="form-outline">
+            <input type="search" id="form1" class="form-control" placeholder="Type query" [(ngModel)]="search"
+              aria-label="Search" />
+          </div>
+          <!-- <input type="search" placeholder="Search by Name .. " [(ngModel)]="search"> -->
+        </div>
+      </div>
+    </div>
+    <!-- Light table -->
+    <div class="table-responsive">
+      <table class="table table-flush table-hover align-items-center">
+        <thead class="thead-light">
+          <tr>
+            <th (click)="sort('doctorName')">
+              Doctor Name <i class="fas fa-arrow-down fa-6" *ngIf="isDesc"></i>
+              <i class="fas fa-arrow-up fa-6" *ngIf="!isDesc"></i>
+            </th>
+            <th (click)="sort('timeSlotId')">
+              Time Slot <i class="fas fa-arrow-down fa-6" *ngIf="isDesc"></i>
+              <i class="fas fa-arrow-up fa-6" *ngIf="!isDesc"></i>
+            </th>
+            <th (click)="sort('appointmentDate')">
+              Date Of Appointment
+              <i class="fas fa-arrow-down fa-6" *ngIf="isDesc"></i>
+              <i class="fas fa-arrow-up fa-6" *ngIf="!isDesc"></i>
+            </th>
+            <th (click)="sort('status')">
+              Status <i class="fas fa-arrow-down fa-6" *ngIf="isDesc"></i>
+              <i class="fas fa-arrow-up fa-6" *ngIf="!isDesc"></i>
+            </th>
+            <th>Action</th>
+            <th>Diet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of appointments | filterPatient: search">
+            <td class="table-user">
+              <!-- <img *ngIf="app.doctor.gender=='Male'" src="../../assets/img/doctor.png"
+                      class="avatar rounded-circle mr-3">
+                    <img *ngIf="app.doctor.gender=='Female'" src="../../assets/img/doctor-female.png"
+                      class="avatar rounded-circle mr-3"> -->
+              <b>{{ app.doctorName | titlecase }} </b>
+            </td>
+            <td>
+              <div *ngIf="app.timeSlotId == 1">10 AM to 12 PM</div>
+              <div *ngIf="app.timeSlotId == 2">2 PM to 4 PM</div>
+              <div *ngIf="app.timeSlotId == 3">6 PM to 9 PM</div>
+            </td>
+            <td>
+              {{ app.appointmentDate | date: "dd/MM/yyyy" }}
+            </td>
+
+            <td>
+              <span *ngIf="app.status == 'approved'" class="badge badge-dot mr-4"><i class="bg-success"></i>
+                <span class="status"> Approved </span></span>
+              <span *ngIf="app.status == 'pending'" class="badge badge-dot mr-4"><i class="bg-warning"></i>
+                <span class="status"> Pending </span></span>
+              <span *ngIf="app.status == 'closed'" class="badge badge-dot mr-4"><i class="bg-warning"></i>
+                <span class="status"> Closed </span></span>
+
+              <span *ngIf="app.status == 'rejected'" class="badge badge-dot mr-4"><i class="bg-danger"></i>
+                <span class="status"> Rejected </span></span>
+            </td>
+
+            <td>
+              <button [disabled]="app.status !== 'closed' || app.isFeedbackProvided == true" type="button"
+                [routerLink]="['/patient/givefeedback', app.appointmentId]" class="btn btn-link">
+                Feedback
+              </button>
+            </td>
+            <td>
+              <button data-toggle="modal" data-target="#myModal" id="button" class="btn btn-primary">
+                Recommendation
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  
+  </div>
+  <!-- Model for Diet Recoomendation-->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" class="large-font" style="color:#022449;"><b>Get your personalised Diet Chart!</b>
+          </h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group" *ngFor="let recommend of showRecommendation">
+            <li class="list-group-item">
+              <h5>Patient Condition:</h5> {{recommend['condition']}}
+            </li>
+            <li class="list-group-item">
+              <h5>Diet Recommendation for Patient:</h5> {{recommend['dietRecommendation']}}
+            </li>
+            <li class="list-group-item">
+              <h5>Exrecise Recommendation for Patient:</h5> {{recommend['exerciseRecommendation']}}
+            </li>
+          </ul>
+    
+          <div class="modal-footer">
+            <button data-dismiss="modal" id="button" class="btn btn-success">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

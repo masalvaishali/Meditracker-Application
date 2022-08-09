@@ -1,0 +1,146 @@
+<!-- <p>analytics-features works!</p> -->
+
+<body>
+<div class="container">
+    <div class="row">
+      <div class="column-33">
+        <!-- <h1 class="xlarge-font"><b>The App</b></h1> -->
+        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Bar Diagram </b></h1>
+        <p><span style="font-size:22px">This Chart tell the the severity of the patient</span> </p>
+        <!-- <button class="button">Diet</button> -->
+        <button  data-toggle="modal" data-target="#myModal"     id="button-1"  class="btn btn-primary">
+          Recommendation
+        </button>
+        <!-- Button for hospital location -->
+        
+      </div>
+      <div class="column-66">
+        <canvas #chart id="myChart" width="400" height="200"></canvas>
+
+          <!-- <img src="/w3images/img_app.jpg" width="335" height="471"> -->
+      </div>
+    </div>
+  </div>
+
+
+ <!-- first chart -->
+
+<!-- <div class="part1"><div class="barCHartInfo">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Bar Diagram </h5>
+            <p class="card-text">This Chart tell the the severity of the patient</p>
+            <a href="#" class="card-link">Diet</a>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="part2">
+    <canvas #chart id="myChart" width="400" height="200"></canvas>
+</div> -->
+
+<!-- second chart -->
+
+<div class="container" style="background-color:#f1f1f1">
+    <div class="row">
+      <div class="column-66">
+        <canvas #mychart id="chart" width="300" height="150"></canvas>
+
+        <!-- <img src="/w3images/app5.jpg" alt="App" width="335" height="471"> -->
+      </div>
+      <div class="column-33">
+        <h1 class="large-font" style="color:#022449;"><b>Line Diagram </b></h1>
+        <p><span style="font-size:22px">This Chart tell the the AFFECTED PART of the patient</span> 
+        </p>
+        <button data-toggle="modal" data-target="#myModal" id="button" class="btn btn-primary">
+          Recommendation
+        </button>
+        <!-- <button class="button"  style="background-color:#022449">Diet</button> -->
+      </div>
+    </div>
+  </div>
+
+<!-- third chart -->
+
+<div class="container">
+    <div class="row">
+      <div class="column-88" >
+        <h1 class="large-font" style="color:#b3003b;"><b>Pie Diagram </b></h1>
+        <p><span style="font-size:22px">This Chart tell the the EXPENSES of the patient</span> </p>
+        <!-- <button class="button"  style="background-color:#b3003b" >Diet</button> -->
+      
+      </div>
+      <div class="column-44"  >
+          <div style="width:400px; height:400px;">
+            <canvas #mychart1 id="mychart1" ></canvas>
+          </div>
+            <!-- <img src="/w3images/img_app.jpg" width="335" height="471" > -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Model for Diet Recoomendation-->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" class="large-font" style="color:#022449;">Get your personalised Diet Chart!
+          </h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <!-- <div class="row">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <b>High</b>
+              <span class="badge badge-primary badge-pill">{{AnalyticRecord.recordsInsights["recordedCases"]["high"]}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             <b>Low</b> 
+              <span class="badge badge-primary badge-pill">{{AnalyticRecord.recordsInsights["recordedCases"]["low"]}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             <b>Severe</b> 
+              <span class="badge badge-primary badge-pill">{{AnalyticRecord.recordsInsights["recordedCases"]["severe"]}}</span>
+            </li>
+          </ul>
+         </div> -->
+          <div class="row" *ngFor="let recommend of showRecommendation">
+            <div class="form-group">
+              <label class="form-control-label"> 
+               
+                <h4 style="font-size:20px" style="color:#022449;"><b>Patient Condition:</b>  {{recommend['condition']}}
+                </h4>
+              </label>
+              <hr>
+
+              <span style="font-size:20px" style="color:#022449;">
+                <b>Diet Recommendation for Patient:</b>
+                {{recommend['dietRecommendation']}}
+              </span>  
+              <hr>
+
+              <!-- <p>  Diet Recommendation for Patient: {{recommend['dietRecommendation']}}</p> -->
+              <span style="font-size:20px" style="color:#022449;">
+               <b>Exrecise Recommendation for Patient:</b>
+                {{recommend['exerciseRecommendation']}}
+              </span>
+
+              <!-- <p>Exrecise Recommendation for Patient: {{recommend['exerciseRecommendation']}}</p> -->
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button data-dismiss="modal" id="button" class="btn btn-success">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

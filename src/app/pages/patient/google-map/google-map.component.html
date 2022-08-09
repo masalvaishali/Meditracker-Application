@@ -1,0 +1,49 @@
+<!-- <agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false">
+
+
+  <agm-marker
+  *ngFor="let m of markers"
+  [latitude]="m.lat"
+  [longitude]="m.lng"
+  [label]="m.label"
+  [draggable]="m.draggable">
+  
+<agm-info-window>
+  <strong>Choclate Factory</strong>
+</agm-info-window>
+
+</agm-marker>
+<agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle>
+
+  </agm-map> -->
+
+  <div class="container-fluid py-4" style="background-color: white;">
+    <nav aria-label="breadcrumb" id="navBar">
+      <ol class="breadcrumb bg-default">
+        <li class="breadcrumb-item">
+          <a routerLink="/patient/home"
+            ><i id="breadCrumb" class="fas fa-home fa-6"></i
+          ></a>
+        </li>
+        <li class="breadcrumb-item">
+          <a id="breadCrumb" routerLink="/patient/hospitals-nearby"
+            >Choose Hospital</a
+          >
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <agm-map [latitude]="lat" [longitude]="lng" icon="https://i.imgur.com/eTYW75M.png" [zoom]="zoom">
+    <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination">
+    </agm-direction>
+  </agm-map>
